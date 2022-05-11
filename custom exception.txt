@@ -1,0 +1,254 @@
+/* 1. Write a program to create custom exception to perform deposit and withdraw options.
+Create InvalidAmountException and throw this exception whenever user trying to deposit or withdraw invalid amount.
+Deposit and withdraw amount should be multiples of 100 and it should be positive value.
+*/
+
+import java.util.Scanner;
+class InvalidAmountException extends Exception{
+public InvalidAmountException(String str) {
+super(str);
+}
+}
+class Example{
+Scanner s=new Scanner(System.in);
+public void deposite() throws InvalidAmountException {
+System.out.println("Enter deposite amount");
+int amt=s.nextInt();
+if(amt>=100 && amt%100==0 ) {
+System.out.println("Valid amount");
+}
+else {
+throw new InvalidAmountException("Please enter valid amount");
+}
+}
+public void withdraw() throws InvalidAmountException{
+System.out.println("Enter withdraw amount");
+int amt=s.nextInt();
+if(amt>=100 && amt%100==0 ) {
+System.out.println("Valid amount");
+}
+else {
+throw new InvalidAmountException("Please enter valid amount");
+}
+}
+public static void main(String args[]) {
+Example e=new Example();
+try {
+e.deposite();
+}
+catch(InvalidAmountException e1) {
+System.out.println(e1);
+}
+try {
+e.withdraw();
+}
+catch(InvalidAmountException e1) {
+System.out.println(e1);
+}
+}
+}
+
+
+ 2.Write a program to create custom exception to validate mobile number. Create InvalidMobileNumber and throw this exception 
+   whenever user enters the mobile number by not following the below conditions.
+  ==> mobile number should contain only digits.
+  ==> mobile number should contain only 10 digits.
+  ==> mobile number should start with 9 or 8 or 7 or 6.
+  Sample input: 
+  Enter your mobile number: 4565333953
+  Sample output: java.lang.InvalidMobileNumber: "Invalid mobile number"
+  Sample input: 
+  Enter your mobile number: 9884533953
+  Sample output: Valid Mobile number
+
+import java.util.Scanner;
+class InvalidMobileNumber extends Exception{
+public InvalidMobileNumber(String str) {
+super(str);
+}
+}
+public class CustomExceptionExample2 {
+Scanner s=new Scanner(System.in);
+public void validateMobile() throws InvalidMobileNumber{
+System.out.println("Enter mobile number");
+long mobile=s.nextLong();
+String m1=String.valueOf(mobile);
+if(m1.length()!=10) {
+throw new InvalidMobileNumber("Please enter 10 digits only");
+}
+if(m1.charAt(0)=='9'|| m1.charAt(0)=='8' ||m1.charAt(0)=='7'|| m1.charAt(0)=='6') {
+System.out.println("Valid mobile number");
+}
+else {
+throw new InvalidMobileNumber("Please enter valid mobile number");
+}
+
+}
+public static void main(String args[]) {
+CustomExceptionExample2 obj=new CustomExceptionExample2();
+try {
+obj.validateMobile();
+}
+catch(InvalidMobileNumber im) {
+System.out.println(im);
+}
+}
+}
+
+
+3.
+/*  Write a program to create custom exception to validate password.
+Create InvalidPasswordFormatException and throw this exception
+whenever the user enters the password by not following the below conditions.
+==> Password should contain at least one digit.
+==> Password should contain at least one uppercase letter.
+==> Password should contain at least one lowercase letter.
+==> Password does not allow space and special characters. Sample Input:
+Enter your password: Password@123
+Sample output: Valid password Sample Input:
+Enter your password: abc123
+Sample output: java.lang.InvalidPasswordFormatException: "Sorry, Invalid passowrd"
+*/
+
+import java.util.Scanner;
+class InvalidPasswordFormatException extends Exception {
+public InvalidPasswordFormatException(String str) {
+super(str);
+}
+}public class CustomExceptionExample3 {
+Scanner s=new Scanner(System.in);
+public void validatePassword() throws InvalidPasswordFormatException{
+System.out.println("Enter password");
+String pwd=s.next();
+int ucount=0,lcount=0,dcount=0,scount=0;
+for(int i=0;i<pwd.length();i++) {
+if(pwd.charAt(i)>='A' && pwd.charAt(i)<='Z' ) {
+ucount++;
+}
+else if(pwd.charAt(i)>='a' && pwd.charAt(i)<='z' ) {
+lcount++;
+}
+else if(pwd.charAt(i)>='0' && pwd.charAt(i)<='9' ) {
+dcount++;
+}
+else {
+scount++;
+}
+}
+if(ucount>0) {
+if(lcount>0) {
+if(dcount>0) {
+if( scount>0) {
+System.out.println("Valid password");
+}
+else {
+throw new InvalidPasswordFormatException("Password should contains atleast one special character");
+} }
+else {
+throw new InvalidPasswordFormatException("Password should contains atleast one digit");
+}
+}
+else {
+throw new InvalidPasswordFormatException("Password should contains atleast one lowercase letter");
+}
+}
+else {
+throw new InvalidPasswordFormatException("Password should contains atleast one uppercase letter");
+}
+}
+public static void main(String args[]) {
+CustomExceptionExample3 obj=new CustomExceptionExample3();
+try {
+obj.validatePassword();
+}
+catch(InvalidPasswordFormatException e) {
+System.out.println(e);
+}
+}
+}
+ 
+
+4./* Write a program to create custom exception to validate eligibility score to join in bitLabs. 
+      Create InvalidScoreException and throw this exception if user entered score is less than 70.
+  Sample input:
+  Enter your score to check eligibility:  65
+  Sample output: 
+  Java.lang.InvalidScoreException: "Sorry, you are not eligible to join in bitLabs."
+  Sample input:
+  Enter your score to check eligibility:  89
+  Sample output: 
+  "Great, you are eligible to join in bitLabs."*/
+
+import java.util.Scanner;
+class InvalidScoreException2 extends Exception{
+public InvalidScoreException2(String str) {
+super(str);
+}
+}
+public class InvalidScoreException {
+Scanner s=new Scanner(System.in);
+public void validScore() throws InvalidScoreException2{
+System.out.println("Enter your score to check eligibility");
+int score=s.nextInt();
+if(score > 70) {
+System.out.println("\"Great, you are eligible to join in bitLabs.\"");
+}
+else {
+throw new InvalidScoreException2("\"Sorry, you are not eligible to join in bitLabs.\"");
+}
+
+}
+public static void main(String args[]) {
+    InvalidScoreException obj=new InvalidScoreException();
+try {
+obj.validScore();
+}
+catch(InvalidScoreException2 im) {
+System.out.println(im);
+}
+}
+}
+
+
+5./*  Write a program create custom Exception to manage stock. Create OutOfStockException and throw this exception if user 
+     entered stock is not present while purchase products. Create the following methods.
+     ==> addStock(int qty)   : write code to add stock
+     ==> purchase(int qty)   : write code to purchase products
+     ==> diplayStock()       : write code to display available stock
+  Display list of options to user before accept option from user, such as 
+  1. addStock  
+  2. purchaseProduct 
+  3. displayStock
+*/
+
+
+import java.util.Scanner;
+class OutOfStockException extends Exception{
+public OutOfStockException(String str) {
+super(str);
+}
+}
+
+public class Example {
+public void addStock(int qty) {
+}
+public void purchase(int qty) {
+}
+public void diplayStock() {
+}
+public void viewOptions() {
+Scanner s=new Scanner(System.in);
+System.out.println("1. Add stack");
+System.out.println("2. purchaseProduct");
+System.out.println("3. display Stock");
+System.out.println("Choose your option");
+int option=s.nextInt();
+if(option==1) {
+}
+}
+public static void main(String args[]) {
+Example obj=new Example();
+obj.viewOptions();
+}
+
+}
