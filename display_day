@@ -1,0 +1,39 @@
+# java-practise
+ Write a program to display the name of the day, based on the number, using the switch statement.
+  Prompt the user to input a number between 1 and 7. 
+  
+  Sample Input: 1
+  
+  Expected Output: Monday
+  
+*/
+
+//import statements for java program to read inputs using Scanner class 
+import java.util.Scanner;
+public class DisplayDay {
+public static void main(String[] args)
+{
+//declare number variable
+int number;
+//Use the scanner class to provide input at execution time using scanner object
+Scanner sc= new Scanner(System.in);
+System.out.println("Enter value for displaying day:");
+number=sc.nextInt();
+  System.out.println(getDayName(number));
+    }
+     public static String getDayName(int day) {
+        String dayName = "";
+        switch (day) {
+            case 1: dayName = "Sunday"; break;
+            case 2: dayName = "Monday"; break;
+            case 3: dayName = "Tuesday"; break;
+            case 4: dayName = "Wednesday"; break;
+            case 5: dayName = "Thursday"; break;
+            case 6: dayName = "Friday"; break;
+            case 7: dayName = "Saturday"; break;
+            case 8: dayName = "Sunday"; break;
+            default:dayName = "Invalid day";
+        }
+       return dayName;
+        }
+}
