@@ -1,0 +1,27 @@
+# java-practise
+import java.util.*;
+import java.lang.*;
+ 
+public class Main{
+    public static int firstDigit(int n)
+    {
+        while (n >= 10)
+            n /= 10;
+            return n;
+    }
+    public static int lastDigit(int n)
+    {
+      return (n % 10);
+    }
+    public static void main(String argc[])
+    {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Number : ");
+        int n = sc.nextInt();
+        int a = firstDigit(n);
+        int b = lastDigit(n); 
+        System.out.println("The first and last digits of "+ n + " : " + a + " and " + b);
+        int sum = a + b; 
+        System.out.print("Sum of First and Last digits of a number : "+sum);
+    }
+}
