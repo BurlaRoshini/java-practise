@@ -1,0 +1,20 @@
+# java-practise
+import java.util.*;
+class Main  
+{
+	public static void lastDigits(int a,int b) {
+	    a=a%10;
+	    b=b%10;
+	    int sum=a+b;
+	    System.out.println(sum);
+	   
+	}
+	public static void main(String[] args)
+	{
+	    Scanner sc=new Scanner(System.in);
+	    c=sc.nextInt();
+	    d=sc.nextInt();
+	    System.out.print("Sum : ");
+	    lastDigits(c,d);
+	}
+}
