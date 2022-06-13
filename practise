@@ -1,4 +1,8 @@
 # java-practise
+
+
+1.  
+
 public class Main{
     public static void main(String[] args){
         int[] a = {1,67,98,90,66,55,234,66};
@@ -20,3 +24,29 @@ public class Main{
         System.out.println(max);
     }
 }
+  
+  
+  2.
+  
+  public class Main
+{
+	public static void main(String[] args) {
+		int[][] n={{10,20,30},{40,50,60},{70,80,90}};
+		int sum=0;
+		for(int j=0;j<3;j++){
+		    for(int k=0;k<3;k++){
+		
+		
+		System.out.println(n[j][k]);
+		if(j==k)
+		sum= sum+n[j][k];
+		    }
+		}
+		System.out.println("sum: "+sum);
+	}
+}
+  
+  
+  3.
+  
+  
