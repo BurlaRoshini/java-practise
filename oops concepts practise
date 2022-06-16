@@ -1,0 +1,88 @@
+# java-practise
+
+ 1.
+ 
+ class H{
+    int i=10;
+	H(){
+		System.out.println("H constructor called.....");
+	}
+	void m1(){
+	    System.out.println("from ClassH...method..m1()...i"+i);
+	}
+	void mA(){
+	    System.out.println("from ClassH....METHOD..mA()...");
+	}
+	
+}
+class E extends H{
+    int i=20;
+	E(){
+		System.out.println("E constructor called.....");
+	}
+	void m1(){
+	    System.out.println("from ClassE...method..m1...i"+"this.i...."+this.i+"Super class i val...."+super.i);
+	}
+	void mB(){
+	    System.out.println("from ClassE....METHOD..mB()...");
+	}
+	
+}
+public class Main{
+	public static void main(String[] args) {
+	    H w;
+	    w = new E();
+		w.m1();
+		w.mA();
+	}
+}
+
+output: 
+H constructor called.....
+E constructor called.....
+from ClassE...method..m1...ithis.i....20Super class i val....10
+from ClassH....METHOD..mA()...
+
+
+
+2.
+
+class A{
+    int i,j;
+    A(){
+        this.i = this.j = 30;
+    }
+    A(int i){
+        this.i = this.j = i;
+    }
+    A(int i,int j){
+        this.i = i;
+        this.j = j;
+    }
+    A(A a){
+        this.i = a.i;
+        this.j = a.j;
+    }
+    @Override
+    public String toString() {
+        return "A [i=" + i + ",j=" + j + "]";
+    }
+}
+public class Main{
+    public static void main(String[] args){
+        A a1 = new A();
+        System.out.println("a1..."+a1);
+        A a2 = new A(10);
+        System.out.println("a1..."+a2);
+        A a3 = new A(10,20);
+        System.out.println("a1..."+a3);
+        A a4 = new A(a3);
+        System.out.println("a1..."+a4);
+    }
+}
+
+ output:
+a1...A [i=30,j=30]
+a1...A [i=10,j=10]
+a1...A [i=10,j=20]
+a1...A [i=10,j=20]
