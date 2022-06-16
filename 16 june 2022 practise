@@ -1,5 +1,7 @@
 # java-practise
-
+******************************************************************************
+        INHERITANCE
+ ******************************************************************************
  1.
  
  class H{
@@ -86,3 +88,31 @@ a1...A [i=30,j=30]
 a1...A [i=10,j=10]
 a1...A [i=10,j=20]
 a1...A [i=10,j=20]
+
+
+************************************************************************************
+ EXCEPTIONS
+*************************************************************************************
+1.
+
+public class Demo2 {
+	public static void main(String[] args) {
+		int d = 0,r=10,n;
+		int[] data = new int[10];
+		try {
+			data[20] = 123;
+		}
+		catch(Exception e)
+		{
+			//System.out.println("Error"+e.to String());
+			e.printStackTrace();
+		}
+		System.out.println("HELLO");
+	}
+
+}
+OUTPUT:
+Java.lang.ArrayIndexOutOfBoundsException: Index 20 out of bounds for length 10
+	at program1.Demo2.main(Demo2.java:8)
+HELLO
+
