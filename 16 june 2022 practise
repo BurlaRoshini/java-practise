@@ -116,3 +116,122 @@ Java.lang.ArrayIndexOutOfBoundsException: Index 20 out of bounds for length 10
 	at program1.Demo2.main(Demo2.java:8)
 HELLO
 
+2.
+
+public class Demo2 {
+	public static void main(String[] args) {
+		
+		try {
+			int n = 10/0;
+		}
+		catch(Exception e)
+		{
+			//System.out.println("Error"+e.to String());
+			e.printStackTrace();
+		}
+		finally {
+			System.out.println("HEy ROSHINI");
+		}
+		System.out.println("HELLO");
+	}
+
+}
+OUTPUT:
+ava.lang.ArithmeticException: / by zero
+	at program1.Demo2.main(Demo2.java:7)
+HEy ROSHINI
+HELLO
+
+3.
+public class Demo2 {
+	public static void main(String[] args) {
+		int[] d = new int[5];
+		try {
+			int n = 10/0;
+			d[10]=34;
+		}
+		catch(ArrayIndexOutOfBoundsException e1)
+		{
+			//System.out.println("Error"+e.to String());
+			e1.printStackTrace();
+			System.out.println("Block1....");
+			
+		}
+		catch(ArithmeticException e2){
+			e2.printStackTrace();
+			System.out.println("HEy ROSHINI");
+		}
+		System.out.println("HELLO");
+	}
+
+}
+
+4.
+public class Demo2 {
+	public static void main(String[] args) {
+		int[] d = new int[5];
+		try {
+			d[10]=34;
+			int n = 10/0;
+			
+		}
+		catch(ArrayIndexOutOfBoundsException e1)
+		{
+			//System.out.println("Error"+e.to String());
+			e1.printStackTrace();
+			System.out.println("Block1....");
+			
+		}
+		catch(ArithmeticException e2){
+			e2.printStackTrace();
+			System.out.println("HEy ROSHINI");
+		}
+		System.out.println("HELLO");
+	}
+		}
+
+output:
+java.lang.ArrayIndexOutOfBoundsException: Index 10 out of bounds for length 5
+	at program1.Demo2.main(Demo2.java:7)
+Block1....
+HELLO
+
+5.
+public class Demo2 {
+	public static void main(String[] args) {
+		int[] d = new int[5];
+		try {
+			d[10]=34;
+			int n = 10/0;
+			
+		}
+		catch(ArrayIndexOutOfBoundsException e1)
+	
+	    {
+			//System.out.println("Error"+e.to String());
+			e1.printStackTrace();
+			System.out.println("Block1....");
+			
+		}
+		try {
+			int n = 20/0;
+		}
+		catch(ArithmeticException e2){
+			e2.printStackTrace();
+			System.out.println("HEy ROSHINI");
+		}
+		System.out.println("HELLO");
+	}
+
+}
+
+
+output:
+java.lang.ArrayIndexOutOfBoundsException: Index 10 out of bounds for length 5
+	at program1.Demo2.main(Demo2.java:6)
+Block1....
+java.lang.ArithmeticException: / by zero
+	at program1.Demo2.main(Demo2.java:19)
+HEy ROSHINI
+HELLO
+
