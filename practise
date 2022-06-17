@@ -66,5 +66,31 @@ public class Main{
 	}
 }
 
+########################################################################
+4.
   
+  class Modifiers {
+	private int v1 = 10;
+	float v2 = 20;
+	protected String name= "HYD";
+	public int v4 = 456;
+	void m1() {
+		System.out.println("private int v1....."+v1);
+		System.out.println("v2....."+v2);
+		System.out.println("name..."+name);
+		System.out.println("v4....."+v4);
+	}
+}
+public class String1{
+	public static void main(String[] args) {
+		new Modifiers().m1();
+	}
+}
   
+output:
+private int v1.....10
+v2.....20.0
+name...HYD
+v4.....456
+
+5.
