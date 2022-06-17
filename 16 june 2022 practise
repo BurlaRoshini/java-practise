@@ -142,7 +142,33 @@ ava.lang.ArithmeticException: / by zero
 HEy ROSHINI
 HELLO
 
+
 3.
+
+public class Demo2 {
+	public static void main(String[] args) {
+		
+		try {
+			int n = 10/2;
+		}
+		catch(Exception e)
+		{
+			//System.out.println("Error"+e.to String());
+			e.printStackTrace();
+		}
+		finally {
+			System.out.println("HEy ROSHINI");
+		}
+		System.out.println("HELLO");
+	}
+
+}
+
+OUTPUT:
+HEy ROSHINI
+HELLO
+
+4.
 public class Demo2 {
 	public static void main(String[] args) {
 		int[] d = new int[5];
@@ -166,7 +192,7 @@ public class Demo2 {
 
 }
 
-4.
+5.
 public class Demo2 {
 	public static void main(String[] args) {
 		int[] d = new int[5];
@@ -196,7 +222,7 @@ java.lang.ArrayIndexOutOfBoundsException: Index 10 out of bounds for length 5
 Block1....
 HELLO
 
-5.
+6.
 public class Demo2 {
 	public static void main(String[] args) {
 		int[] d = new int[5];
@@ -234,4 +260,6 @@ java.lang.ArithmeticException: / by zero
 	at program1.Demo2.main(Demo2.java:19)
 HEy ROSHINI
 HELLO
+
+7.
 
