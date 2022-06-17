@@ -311,7 +311,9 @@ GECException [expStr=Do not like 1 as remainder]
 	at program1.Try1.main(Try1.java:16)
 	
        ######################################################################
-8.interface BankAcc{
+8.
+
+interface BankAcc{
 	void deposit(double amount) throws LimitExceedsException;
 	void withDraw(double amount) throws InsufficientFunds;
 	void showBalance();
@@ -325,15 +327,38 @@ class SBIAcc implements BankAcc{
 	public void deposit(double amount) throws LimitExceedsException
 	{
 		if(amount > 50000) throw new LimitExceedsException(""+amount);
-		
+		this.balance = balance + amount;
+	}
+	public void withDraw(double amount) throws InsufficientFunds
+	{
+		if(amount > balance) throw new InsufficientFunds(""+amount);
+		this.balance = balance - amount;
+	}
+	public void showBalance() {
+		System.out.println("Available Balance  "+balance);
 	}
 }
 class InsufficientFunds extends Exception{
 	String err;
-	public InsufficientFunds(String err)
-	
+	public InsufficientFunds(String err) {
+		super();
+		this.err = err;
+	}
+	@Override
+	public String toString() {
+		return "InsufficientFunds [err=" + err + "]";
+	}
 }
 class LimitExceedsException extends Exception{
+	String err;
+	public LimitExceedsException(String err) {
+		super();
+		this.err = err;
+	}
+	@Override
+	public String toString() {
+		return "LimitExceedsException [err=" + err + "]";
+	}
 	
 }
 public class Try1 {
@@ -358,3 +383,11 @@ public class Try1 {
 }
 
 
+output:
+
+Available Balance  25000.0
+InsufficientFunds [err=30000.0]
+	at program1.SBIAcc.withDraw(Try1.java:20)
+	at program1.Try1.main(Try1.java:55)
+Available Balance  25000.0
+Available Balance  60000.0
