@@ -93,6 +93,7 @@ a1...A [i=10,j=20]
 ************************************************************************************
  EXCEPTIONS
 *************************************************************************************
+#####################################################################################
 1.
 
 public class Demo2 {
@@ -115,7 +116,7 @@ OUTPUT:
 Java.lang.ArrayIndexOutOfBoundsException: Index 20 out of bounds for length 10
 	at program1.Demo2.main(Demo2.java:8)
 HELLO
-
+#############################################################################################
 2.
 
 public class Demo2 {
@@ -141,7 +142,7 @@ ava.lang.ArithmeticException: / by zero
 	at program1.Demo2.main(Demo2.java:7)
 HEy ROSHINI
 HELLO
-
+        ########################################################################
 
 3.
 
@@ -167,7 +168,7 @@ public class Demo2 {
 OUTPUT:
 HEy ROSHINI
 HELLO
-
+          ############################################################################
 4.
 public class Demo2 {
 	public static void main(String[] args) {
@@ -191,7 +192,7 @@ public class Demo2 {
 	}
 
 }
-
+        ######################################################################
 5.
 public class Demo2 {
 	public static void main(String[] args) {
@@ -221,7 +222,7 @@ java.lang.ArrayIndexOutOfBoundsException: Index 10 out of bounds for length 5
 	at program1.Demo2.main(Demo2.java:7)
 Block1....
 HELLO
-
+           #############################################################
 6.
 public class Demo2 {
 	public static void main(String[] args) {
@@ -260,6 +261,100 @@ java.lang.ArithmeticException: / by zero
 	at program1.Demo2.main(Demo2.java:19)
 HEy ROSHINI
 HELLO
-
+    #####################################################################
 7.
+
+class GECException extends Exception{
+	String expStr;
+	public GECException(String expStr) {
+		super();
+		this.expStr = expStr;
+	}
+	@Override
+	public String toString() {
+		return "GECException [expStr=" + expStr + "]";
+	}
+	
+}
+public class Try1 {
+	public static void main(String[] args) {
+		m1();
+	}
+	private static void m1() {
+		int n = 2381;
+		if(n % 10 == 1) {
+		try {
+			throw new GECException("Do not like 1 as remainder");
+		}
+		catch(GECException e)
+	
+	    {
+			e.printStackTrace();
+			try {
+				throw e;
+			}
+			catch(GECException e1) {
+				e1.printStackTrace();
+			}
+	    }
+		}
+	    }	
+}
+
+Output:
+
+GECException [expStr=Do not like 1 as remainder]
+	at program1.Try1.m1(Try1.java:22)
+	at program1.Try1.main(Try1.java:16)
+GECException [expStr=Do not like 1 as remainder]
+	at program1.Try1.m1(Try1.java:22)
+	at program1.Try1.main(Try1.java:16)
+	
+       ######################################################################
+8.interface BankAcc{
+	void deposit(double amount) throws LimitExceedsException;
+	void withDraw(double amount) throws InsufficientFunds;
+	void showBalance();
+	}
+class SBIAcc implements BankAcc{
+	double balance;
+	public SBIAcc(double balance) {
+		super();
+		this.balance = balance;
+	}
+	public void deposit(double amount) throws LimitExceedsException
+	{
+		if(amount > 50000) throw new LimitExceedsException(""+amount);
+		
+	}
+}
+class InsufficientFunds extends Exception{
+	String err;
+	public InsufficientFunds(String err)
+	
+}
+class LimitExceedsException extends Exception{
+	
+}
+public class Try1 {
+	public static void main(String[] args) {
+		SBIAcc sbiAcc = new SBIAcc(25000);
+		sbiAcc.showBalance();
+		try {
+			sbiAcc.withDraw(30000);
+		}
+		catch(InsufficientFunds e) {
+			e.printStackTrace();
+		}
+		sbiAcc.showBalance();
+		try {
+			sbiAcc.deposit(35000);
+		}
+		catch(LimitExceedsException e){
+			e.printStackTrace(); 
+		}
+		sbiAcc.showBalance();
+	    }	
+}
+
 
