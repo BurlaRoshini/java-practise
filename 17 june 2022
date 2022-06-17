@@ -1,0 +1,98 @@
+# java-practise
+1.
+public class Main
+{
+	public static void main(String[] args) {
+		String str = "1551";
+		String newStr = "";
+		for(int i=str.length()-1;i>=0;i--)
+		{
+		    newStr = newStr + str.charAt(i);
+		}
+		System.out.println(newStr);
+		if(str.equals(newStr))
+		System.out.println("Yes it is a palindrome");
+		else
+		System.out.println("Yes it is a palindrome");
+	}
+}
+
+********************************************************************************
+
+**********************************************************************************
+#######################################################################################
+1.
+public class Demo3 {
+	static int findEvenOddRes(int n1,int n2,int n3,int n4) {
+		int d,index=1,evenSum=0,oddSum=0,res;
+		while(n1 != 0 || n2 != 0 || n3 != 0) {
+			d = n1 % 10 + n2 % 10 + n3 % 10;
+			n1 = n1 / 10;
+			n2 = n2 / 10;
+			n3 = n3 / 10;
+			if(index++ % 2 == 0)
+				evenSum = evenSum +d;
+			else
+				oddSum = oddSum +  d;
+		}
+		if(n4 % 2 == 0) {
+			res = evenSum - oddSum;
+		}
+		else {
+			res = oddSum - evenSum;
+		}
+		return res;
+		}
+		public static void main(String[] args) {
+			int n1 = 1275,n2 =5676,n3=2312,n4=38;
+			int res = findEvenOddRes(n1,n2,n3,n4);
+			System.out.println("Final result : "+res);
+	}
+
+}
+
+OUTPUT:
+Final result : -1
+
+    **************(OR)************************
+    
+public class Demo4 {
+	static int findEvenOddRes(int n1,int n2,int n3,int n4) {
+		int d,index=1,sum=0,p=1;
+		if(n4 % 2 == 0)
+			p=-1;
+		while(n1 != 0 || n2 != 0 || n3 != 0) {
+			d = n1 % 10 + n2 % 10 + n3 % 10;
+			n1  = n1 / 10;
+			n2  = n2 / 10;
+			n3  = n3 / 10;
+			sum = sum + p * d;
+			p = p * -1;
+
+		}
+		return sum;
+	}
+	public static void main(String[] args) {
+		int n1 = 1275,n2 =5676,n3=2312,n4=38;
+		int res = findEvenOddRes(n1,n2,n3,n4);
+		System.out.println("Final result : "+res);
+	}
+}
+
+####################################################################
+
+SUM OF PRIME INDEX VALUES IN AN ARRAY
+
+INDEX-  0  1   2   3   4   5
+      { 2  13  25  17  49  61}
+            2     3    5
+      RES = 25 + 17 +  61 = 103
+      
+2.
+
+
+      
+      
+      
+
+
